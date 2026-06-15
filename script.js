@@ -437,7 +437,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     11. PRELOADER FADE (Optional)
+     11. PERFORMANCE-OPTIMIZED PARALLAX BACKGROUNDS
+     ========================================================== */
+  const parallaxSections = [];
+  const parallaxElements = document.querySelectorAll('.parallax-bg-wrap');
+
+  parallaxElements.forEach(wrap => {
+    const section = wrap.parentElement;
+    const img = wrap.querySelector('.parallax-bg-img');
+    const speed = parseFloat(img.getAttribute('data-speed')) || -0.15;
+    if (section && img) {
+      parallaxSections.push({
+        section,
+        img,
+        speed,
+        isVisible: true // Start true for initial render on page load
+      });
+    }
+  });
+
+  function updateParallax(scrollY) {
+    parallaxSections.forEach(item => {
+      if (item.isVisible) {
+        const relativeScroll = scrollY - item.section.offsetTop;
+        const translation = relativeScroll * item.speed;
+        item.img.style.transform = `translate3d(0, ${translation}px, 0)`;
+      }
+    });
+  }
+
+  // Intersection Observer to restrict parallax updates to onscreen sections
+  const parallaxObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const targetSection = entry.target;
+      const data = parallaxSections.find(item => item.section === targetSection);
+      if (data) {
+        data.isVisible = entry.isIntersecting;
+      }
+    });
+  }, {
+    threshold: 0,
+    rootMargin: '150px 0px 150px 0px' // Start updates slightly before entry
+  });
+
+  parallaxSections.forEach(item => {
+    parallaxObserver.observe(item.section);
+  });
+
+  // Connect parallax to Lenis smooth scroll updates
+  lenis.on('scroll', () => {
+    updateParallax(window.scrollY);
+  });
+
+  // Run initial translation positioning on load
+  setTimeout(() => {
+    updateParallax(window.scrollY);
+  }, 100);
+
+  /* ==========================================================
+     12. PRELOADER FADE (Optional)
      ========================================================== */
   document.body.style.opacity = '0';
   document.body.style.transition = 'opacity 0.5s ease';

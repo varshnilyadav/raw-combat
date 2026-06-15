@@ -363,6 +363,34 @@ button {
   overflow: hidden;
 }
 
+.hero-bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: grayscale(40%) contrast(110%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(17, 17, 17, 0.4) 0%, rgba(17, 17, 17, 0.9) 100%);
+}
+
 .hero-canvas {
   position: absolute;
   top: 0;
@@ -579,7 +607,9 @@ button {
   background: var(--deep-black);
   border-top: 3px solid var(--gold);
   border-radius: 6px;
-  padding: var(--space-lg) var(--space-md) var(--space-md);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   transition: transform var(--transition-med), box-shadow var(--transition-med);
   position: relative;
@@ -608,25 +638,68 @@ button {
   opacity: 1;
 }
 
-.program-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto var(--space-sm);
+.program-img-wrap {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-spring);
+  filter: brightness(85%) contrast(105%);
+}
+
+.program-card:hover .program-img {
+  transform: scale(1.08);
+}
+
+.program-badge {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background: var(--deep-black);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 1;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: border-color var(--transition-fast), transform var(--transition-med);
 }
 
-.program-icon svg {
-  width: 60px;
-  height: 60px;
+.program-badge svg {
+  width: 26px;
+  height: 26px;
   fill: var(--gold);
-  opacity: 0.85;
+  transition: fill var(--transition-fast), transform var(--transition-fast);
 }
 
-.program-card h3 {
+.program-card:hover .program-badge {
+  border-color: var(--raw-red);
+}
+
+.program-card:hover .program-badge svg {
+  fill: var(--raw-red);
+  transform: scale(1.1);
+}
+
+.program-card-content {
+  padding: 2rem var(--space-md) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.program-card-content h3 {
   font-family: var(--font-display);
   font-size: 1.5rem;
   letter-spacing: 0.08em;
@@ -636,7 +709,7 @@ button {
   z-index: 1;
 }
 
-.program-card p {
+.program-card-content p {
   font-family: var(--font-body);
   color: var(--white-dim);
   font-size: 0.95rem;
@@ -644,9 +717,10 @@ button {
   line-height: 1.5;
   position: relative;
   z-index: 1;
+  flex-grow: 1;
 }
 
-.program-card .magnetic-btn {
+.program-card-content .magnetic-btn {
   font-size: 0.85rem;
   padding: 0.7rem 1.5rem;
   min-width: auto;
@@ -1216,6 +1290,64 @@ button {
 @keyframes whatsappBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
+}
+
+/* ============================================================
+   PARALLAX BACKGROUNDS
+   ============================================================ */
+.stats, .testimonials, .join-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.stats .container,
+.testimonials .container,
+.join-cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+.parallax-bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 145%; /* Sized larger than section to allow room for translate scroll */
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.parallax-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08; /* Extremely subtle */
+  filter: grayscale(100%) brightness(70%) contrast(110%);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--deep-black);
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}
+
+.join-cta .parallax-bg-img {
+  opacity: 0.15; /* Sized for contrast against red CTA section */
+  filter: contrast(130%) brightness(75%);
+}
+
+.join-cta .parallax-overlay {
+  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.55) 0%, var(--deep-black) 100%);
+  mix-blend-mode: normal;
+  opacity: 0.7;
 }
 
 /* ============================================================
