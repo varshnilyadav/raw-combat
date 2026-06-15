@@ -89,7 +89,7 @@
 
       <div class="hero-ctas">
         <div class="magnetic-wrap">
-          <a href="#join" class="magnetic-btn primary" id="cta-join">JOIN NOW</a>
+          <a href="javascript:void(0)" class="magnetic-btn primary trigger-booking" id="cta-join">JOIN NOW</a>
         </div>
         <div class="magnetic-wrap">
           <a href="#schedule" class="magnetic-btn outline" id="cta-schedule">VIEW SCHEDULE</a>
@@ -163,7 +163,7 @@
             <h3>GRAPPLING</h3>
             <p>Master ground control and submission techniques</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="Grappling">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@
             <h3>MMA</h3>
             <p>Complete fighter development — striking + grappling combined</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="MMA">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@
             <h3>PANKRATION</h3>
             <p>Ancient combat sport revived with modern technique</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="Pankration">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -225,7 +225,7 @@
             <h3>KICKBOXING</h3>
             <p>Explosive striking power and footwork precision</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="Kickboxing">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -246,7 +246,7 @@
             <h3>BJJ</h3>
             <p>The gentle art of leverage and ground mastery</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="BJJ">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@
             <h3>SAMBO</h3>
             <p>Russian combat system blending wrestling and judo</p>
             <div class="magnetic-wrap">
-              <a href="#join" class="magnetic-btn outline">Learn More</a>
+              <a href="javascript:void(0)" class="magnetic-btn outline trigger-booking" data-discipline="Sambo">Book Free Class</a>
             </div>
           </div>
         </div>
@@ -641,6 +641,108 @@
   <a href="https://wa.me/918639095610" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- ============================================================
+       SLOT BOOKING MODAL
+       ============================================================ -->
+  <div class="booking-modal" id="bookingModal" aria-hidden="true">
+    <div class="booking-overlay" id="bookingOverlay"></div>
+    <div class="booking-card">
+      <button class="booking-close" id="bookingClose" aria-label="Close booking">&times;</button>
+      
+      <div class="booking-progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <form id="bookingForm" novalidate>
+        <!-- Step 1: Program -->
+        <div class="booking-step active" data-step="1">
+          <h3>SELECT YOUR DISCIPLINE</h3>
+          <div class="booking-options">
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="Grappling" checked>
+              <span>GRAPPLING</span>
+            </label>
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="MMA">
+              <span>MMA</span>
+            </label>
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="Pankration">
+              <span>PANKRATION</span>
+            </label>
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="Kickboxing">
+              <span>KICKBOXING</span>
+            </label>
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="BJJ">
+              <span>BJJ</span>
+            </label>
+            <label class="booking-option-card">
+              <input type="radio" name="booking_discipline" value="Sambo">
+              <span>SAMBO</span>
+            </label>
+          </div>
+          <button type="button" class="booking-next-btn red-btn">NEXT STEP</button>
+        </div>
+
+        <!-- Step 2: Day & Slot -->
+        <div class="booking-step" data-step="2">
+          <h3>SELECT DAY & TIME</h3>
+          <div class="booking-field">
+            <label for="bookingDay">Preferred Day</label>
+            <select id="bookingDay" name="booking_day" required>
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+            </select>
+          </div>
+          <div class="booking-field">
+            <label>Available Slots</label>
+            <div class="slot-choices" id="slotChoices">
+              <!-- Dynamically filled with radios for Morning or Evening -->
+            </div>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="booking-prev-btn outline-btn">BACK</button>
+            <button type="button" class="booking-next-btn red-btn">NEXT STEP</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact Details -->
+        <div class="booking-step" data-step="3">
+          <h3>YOUR INFORMATION</h3>
+          <div class="booking-field">
+            <label for="bookingName">Full Name</label>
+            <input type="text" id="bookingName" name="booking_name" placeholder="John Doe" required>
+            <span class="error-msg" id="nameError">Name is required</span>
+          </div>
+          <div class="booking-field">
+            <label for="bookingPhone">WhatsApp Number</label>
+            <input type="tel" id="bookingPhone" name="booking_phone" placeholder="9876543210" required>
+            <span class="error-msg" id="phoneError">Valid phone number is required</span>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="booking-prev-btn outline-btn">BACK</button>
+            <button type="submit" class="booking-submit-btn red-btn">CONFIRM BOOKING</button>
+          </div>
+        </div>
+
+        <!-- Success Step -->
+        <div class="booking-step success-step" id="successStep">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>BOOKING REQUESTED!</h3>
+          <p>Redirecting to WhatsApp to complete your confirmation...</p>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- ============================================================
        SCRIPTS

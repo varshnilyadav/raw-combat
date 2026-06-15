@@ -1349,6 +1349,318 @@ button {
 }
 
 /* ============================================================
+   SLOT BOOKING MODAL
+   ============================================================ */
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-spring);
+}
+
+.booking-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.booking-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.booking-card {
+  position: relative;
+  background: var(--charcoal);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid var(--raw-red);
+  width: 90%;
+  max-width: 550px;
+  border-radius: 8px;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  z-index: 2001;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(30px) scale(0.95);
+  transition: transform 0.4s var(--ease-spring);
+  overflow: hidden;
+}
+
+.booking-modal.open .booking-card {
+  transform: translateY(0) scale(1);
+}
+
+.booking-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2.2rem;
+  color: var(--white-dim);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  z-index: 2002;
+}
+
+.booking-close:hover {
+  color: var(--raw-red);
+}
+
+/* Progress Bar */
+.booking-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--raw-red);
+  width: 0;
+  transition: width 0.4s var(--ease-spring);
+}
+
+/* Steps Layout */
+.booking-step {
+  display: none;
+  animation: stepFade 0.4s ease forwards;
+}
+
+.booking-step.active {
+  display: block;
+}
+
+@keyframes stepFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-md);
+  color: var(--white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.5rem;
+}
+
+/* Step 1: Options Grid */
+.booking-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.booking-option-card {
+  position: relative;
+  background: var(--deep-black);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-med);
+  user-select: none;
+}
+
+.booking-option-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.booking-option-card span {
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--white-dim);
+  transition: color var(--transition-fast);
+}
+
+.booking-option-card:hover {
+  border-color: rgba(204, 0, 0, 0.4);
+  background: rgba(204, 0, 0, 0.03);
+}
+
+.booking-option-card input[type="radio"]:checked + span {
+  color: var(--white);
+}
+
+.booking-option-card:has(input[type="radio"]:checked) {
+  border-color: var(--raw-red);
+  background: rgba(204, 0, 0, 0.08);
+  box-shadow: 0 0 15px rgba(204, 0, 0, 0.2);
+}
+
+/* Form Controls */
+.booking-field {
+  margin-bottom: var(--space-md);
+  text-align: left;
+}
+
+.booking-field label {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white-muted);
+  margin-bottom: 0.5rem;
+}
+
+.booking-field select,
+.booking-field input[type="text"],
+.booking-field input[type="tel"] {
+  width: 100%;
+  background: var(--deep-black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.booking-field select:focus,
+.booking-field input:focus {
+  outline: none;
+  border-color: var(--raw-red);
+  box-shadow: 0 0 10px rgba(204, 0, 0, 0.1);
+}
+
+/* Radios for slots */
+.slot-choices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.slot-choices label {
+  margin-bottom: 0;
+}
+
+/* Navigation Buttons inside Modal */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.red-btn,
+.outline-btn {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.red-btn {
+  background: var(--raw-red);
+  color: var(--white);
+}
+
+.red-btn:hover {
+  background: var(--raw-red-dark);
+  box-shadow: 0 4px 15px var(--raw-red-glow);
+}
+
+.outline-btn {
+  background: transparent;
+  color: var(--white-dim);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.outline-btn:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.booking-step .booking-next-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+.booking-step .step-nav button {
+  flex: 1;
+}
+
+/* Validation Errors */
+.error-msg {
+  display: none;
+  color: var(--raw-red);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  font-family: var(--font-body);
+}
+
+.booking-field.error input {
+  border-color: var(--raw-red);
+}
+
+.booking-field.error .error-msg {
+  display: block;
+}
+
+/* Success State */
+.success-step {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #25D366; /* Standard messaging green */
+  margin-bottom: var(--space-sm);
+  animation: successPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes successPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-step p {
+  color: var(--white-dim);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 480px) {
+  .booking-options,
+  .slot-choices {
+    grid-template-columns: 1fr;
+  }
+  .booking-card {
+    padding: var(--space-md) var(--space-sm) var(--space-sm);
+  }
+}
+
+/* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
 

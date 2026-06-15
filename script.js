@@ -495,7 +495,212 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 
   /* ==========================================================
-     12. PRELOADER FADE (Optional)
+     12. SLOT BOOKING MODAL WIZARD
+     ========================================================== */
+  const bookingModal = document.getElementById('bookingModal');
+  const bookingClose = document.getElementById('bookingClose');
+  const bookingOverlay = document.getElementById('bookingOverlay');
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingDaySelect = document.getElementById('bookingDay');
+  const slotChoicesContainer = document.getElementById('slotChoices');
+  const progressBar = document.getElementById('progressBar');
+  const steps = document.querySelectorAll('.booking-step');
+  const nextBtns = document.querySelectorAll('.booking-next-btn');
+  const prevBtns = document.querySelectorAll('.booking-prev-btn');
+  const triggerBtns = document.querySelectorAll('.trigger-booking');
+
+  const slotOptions = {
+    Monday: [
+      { id: "mon_am", label: "Morning (7–9 AM) — Grappling / BJJ", value: "Morning (7–9 AM)" },
+      { id: "mon_pm", label: "Evening (5–8 PM) — MMA / Kickboxing", value: "Evening (5–8 PM)" }
+    ],
+    Tuesday: [
+      { id: "tue_am", label: "Morning (7–9 AM) — Kickboxing / Sambo", value: "Morning (7–9 AM)" },
+      { id: "tue_pm", label: "Evening (5–8 PM) — BJJ Advanced / Pankration", value: "Evening (5–8 PM)" }
+    ],
+    Wednesday: [
+      { id: "wed_am", label: "Morning (7–9 AM) — MMA Conditioning / Grappling", value: "Morning (7–9 AM)" },
+      { id: "wed_pm", label: "Evening (5–8 PM) — Sambo / Kickboxing", value: "Evening (5–8 PM)" }
+    ],
+    Thursday: [
+      { id: "thu_am", label: "Morning (7–9 AM) — BJJ Drills / Pankration", value: "Morning (7–9 AM)" },
+      { id: "thu_pm", label: "Evening (5–8 PM) — MMA Sparring / Grappling", value: "Evening (5–8 PM)" }
+    ],
+    Friday: [
+      { id: "fri_am", label: "Morning (7–9 AM) — Sambo / Kickboxing Power", value: "Morning (7–9 AM)" },
+      { id: "fri_pm", label: "Evening (5–8 PM) — BJJ Open Mat / MMA", value: "Evening (5–8 PM)" }
+    ],
+    Saturday: [
+      { id: "sat_am", label: "Morning (7–9 AM) — Grappling Open / Pankration", value: "Morning (7–9 AM)" },
+      { id: "sat_pm", label: "Evening (5–8 PM) — MMA Competition Prep / Sambo Advanced", value: "Evening (5–8 PM)" }
+    ]
+  };
+
+  let activeStep = 1;
+
+  function updateProgressBar() {
+    const totalSteps = 3;
+    const width = ((activeStep - 1) / (totalSteps - 1)) * 100;
+    progressBar.style.width = `${width}%`;
+  }
+
+  function showStep(stepNum) {
+    steps.forEach(step => {
+      const stepVal = parseInt(step.dataset.step);
+      if (stepVal === stepNum) {
+        step.classList.add('active');
+      } else {
+        step.classList.remove('active');
+      }
+    });
+    updateProgressBar();
+  }
+
+  function populateSlots(day) {
+    slotChoicesContainer.innerHTML = '';
+    const options = slotOptions[day] || [];
+    options.forEach((opt, idx) => {
+      const labelCard = document.createElement('label');
+      labelCard.className = 'booking-option-card';
+      
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'booking_slot';
+      input.value = opt.value;
+      if (idx === 0) input.checked = true;
+
+      const span = document.createElement('span');
+      span.textContent = opt.label;
+
+      labelCard.appendChild(input);
+      labelCard.appendChild(span);
+      slotChoicesContainer.appendChild(labelCard);
+    });
+  }
+
+  // Populate slots on day change
+  bookingDaySelect.addEventListener('change', (e) => {
+    populateSlots(e.target.value);
+  });
+
+  // Open Modal
+  triggerBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // If a discipline is specified, pre-select it
+      const preselectedDiscipline = btn.getAttribute('data-discipline');
+      if (preselectedDiscipline) {
+        const radio = bookingForm.querySelector(`input[name="booking_discipline"][value="${preselectedDiscipline}"]`);
+        if (radio) radio.checked = true;
+      }
+
+      // Populate slots initially for current selected day
+      populateSlots(bookingDaySelect.value);
+
+      // Reset form steps
+      activeStep = 1;
+      showStep(activeStep);
+      document.getElementById('successStep').classList.remove('active');
+      bookingForm.reset();
+      
+      // Remove validation errors
+      document.getElementById('bookingName').parentElement.classList.remove('error');
+      document.getElementById('bookingPhone').parentElement.classList.remove('error');
+
+      // Open Modal
+      bookingModal.classList.add('open');
+      bookingModal.setAttribute('aria-hidden', 'false');
+      lenis.stop(); // Stop page scrolling
+    });
+  });
+
+  // Close Modal
+  function closeModal() {
+    bookingModal.classList.remove('open');
+    bookingModal.setAttribute('aria-hidden', 'true');
+    lenis.start(); // Resume scrolling
+  }
+
+  bookingClose.addEventListener('click', closeModal);
+  bookingOverlay.addEventListener('click', closeModal);
+
+  // Next Step Navigation
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (activeStep < 3) {
+        activeStep++;
+        showStep(activeStep);
+      }
+    });
+  });
+
+  // Prev Step Navigation
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (activeStep > 1) {
+        activeStep--;
+        showStep(activeStep);
+      }
+    });
+  });
+
+  // Input Validation
+  function validateForm() {
+    let isValid = true;
+    const nameInput = document.getElementById('bookingName');
+    const phoneInput = document.getElementById('bookingPhone');
+
+    // Name check
+    if (nameInput.value.trim().length < 2) {
+      nameInput.parentElement.classList.add('error');
+      isValid = false;
+    } else {
+      nameInput.parentElement.classList.remove('error');
+    }
+
+    // Phone check
+    const phonePattern = /^\+?[0-9\s-]{10,15}$/;
+    if (!phonePattern.test(phoneInput.value.trim())) {
+      phoneInput.parentElement.classList.add('error');
+      isValid = false;
+    } else {
+      phoneInput.parentElement.classList.remove('error');
+    }
+
+    return isValid;
+  }
+
+  // Handle Form Submission
+  bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    // Transition to success step
+    steps.forEach(step => step.classList.remove('active'));
+    document.getElementById('successStep').classList.add('active');
+    progressBar.style.width = '100%';
+
+    // Gather form values
+    const discipline = bookingForm.querySelector('input[name="booking_discipline"]:checked').value;
+    const day = bookingDaySelect.value;
+    const slot = bookingForm.querySelector('input[name="booking_slot"]:checked').value;
+    const name = document.getElementById('bookingName').value.trim();
+    const phone = document.getElementById('bookingPhone').value.trim();
+
+    // Construct WhatsApp message
+    const waBaseUrl = 'https://wa.me/918639095610';
+    const message = `Hi RAW Combat Sports! My name is ${name}. I would like to book my free ${discipline} class for ${day} during the ${slot} slot. (WhatsApp: ${phone})`;
+    const waUrl = `${waBaseUrl}?text=${encodeURIComponent(message)}`;
+
+    // Redirect after delay
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+      closeModal();
+    }, 1500);
+  });
+
+  /* ==========================================================
+     13. PRELOADER FADE (Optional)
      ========================================================== */
   document.body.style.opacity = '0';
   document.body.style.transition = 'opacity 0.5s ease';
