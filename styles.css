@@ -9,8 +9,6 @@
   --raw-red: #CC0000;
   --raw-red-dark: #8B0000;
   --raw-red-glow: rgba(204, 0, 0, 0.4);
-  --gold: #FFD700;
-  --gold-dim: rgba(255, 215, 0, 0.15);
   --deep-black: #111111;
   --charcoal: #1A1A1A;
   --white: #FFFFFF;
@@ -135,7 +133,7 @@ button {
 }
 
 .section-title span {
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 .accent-label {
@@ -143,7 +141,7 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.85rem;
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 /* ---------- Scroll Reveal Animations ---------- */
@@ -237,12 +235,12 @@ button {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--gold);
+  background: var(--raw-red);
   transition: width var(--transition-med);
 }
 
 .nav-links a:hover {
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 .nav-links a:hover::after {
@@ -254,15 +252,15 @@ button {
   font-size: 0.95rem;
   letter-spacing: 0.1em;
   padding: 0.6rem 1.5rem;
-  background: var(--gold);
-  color: var(--deep-black);
+  background: var(--raw-red);
+  color: var(--white);
   border-radius: 4px;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 20px var(--raw-red-glow);
 }
 
 /* Hamburger */
@@ -303,7 +301,7 @@ button {
   width: 300px;
   height: 100vh;
   background: var(--deep-black);
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--raw-red);
   padding: calc(var(--nav-height) + var(--space-md)) var(--space-md) var(--space-md);
   z-index: 999;
   transition: right var(--transition-med);
@@ -327,7 +325,7 @@ button {
 }
 
 .mobile-drawer a:hover {
-  color: var(--gold);
+  color: var(--raw-red);
   padding-left: var(--space-sm);
 }
 
@@ -477,13 +475,13 @@ button {
 }
 
 .magnetic-btn.primary {
-  background: var(--gold);
-  color: var(--deep-black);
+  background: var(--raw-red);
+  color: var(--white);
   font-weight: 700;
 }
 
 .magnetic-btn.primary:hover {
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
+  box-shadow: 0 8px 30px var(--raw-red-glow);
 }
 
 .magnetic-btn.outline {
@@ -493,9 +491,9 @@ button {
 }
 
 .magnetic-btn.outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+  border-color: var(--raw-red);
+  color: var(--raw-red);
+  box-shadow: 0 8px 30px var(--raw-red-glow);
 }
 
 .magnetic-btn.red {
@@ -508,16 +506,16 @@ button {
   box-shadow: 0 8px 30px var(--raw-red-glow);
 }
 
-.magnetic-btn.gold-large {
-  background: var(--gold);
-  color: var(--deep-black);
+.magnetic-btn.red-large {
+  background: var(--raw-red);
+  color: var(--white);
   font-weight: 700;
   font-size: 1.3rem;
   padding: 1.2rem 3rem;
 }
 
-.magnetic-btn.gold-large:hover {
-  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+.magnetic-btn.red-large:hover {
+  box-shadow: 0 10px 40px var(--raw-red-glow);
 }
 
 /* Mobile pulse for magnetic buttons */
@@ -582,7 +580,7 @@ button {
 }
 
 .marquee-strip:last-child .marquee-track span {
-  color: var(--gold);
+  color: var(--white);
 }
 
 @keyframes marqueeScroll {
@@ -605,7 +603,7 @@ button {
 
 .program-card {
   background: var(--deep-black);
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--raw-red);
   border-radius: 6px;
   padding: 0;
   display: flex;
@@ -665,7 +663,7 @@ button {
   width: 48px;
   height: 48px;
   background: var(--deep-black);
-  border: 2px solid var(--gold);
+  border: 2px solid var(--white-muted);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -678,7 +676,7 @@ button {
 .program-badge svg {
   width: 26px;
   height: 26px;
-  fill: var(--gold);
+  fill: var(--white-dim);
   transition: fill var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -756,7 +754,7 @@ button {
 .stat-number {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: var(--gold);
+  color: var(--raw-red);
   line-height: 1;
   margin-bottom: 0.3rem;
 }
@@ -764,7 +762,7 @@ button {
 .stat-suffix {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 .stat-label {
@@ -820,7 +818,7 @@ button {
 .why-icon svg {
   width: 28px;
   height: 28px;
-  fill: var(--gold);
+  fill: var(--raw-red);
 }
 
 .why-item h3 {
@@ -877,7 +875,7 @@ button {
 .testimonial-quote-mark {
   font-family: Georgia, serif;
   font-size: 4rem;
-  color: var(--gold);
+  color: var(--raw-red);
   line-height: 1;
   margin-bottom: var(--space-xs);
   opacity: 0.6;
@@ -893,7 +891,7 @@ button {
 }
 
 .testimonial-stars {
-  color: var(--gold);
+  color: var(--raw-red);
   font-size: 1.2rem;
   margin-bottom: var(--space-sm);
   letter-spacing: 0.15em;
@@ -932,12 +930,12 @@ button {
 }
 
 .testimonial-dot.active {
-  background: var(--gold);
+  background: var(--raw-red);
   transform: scale(1.2);
 }
 
 .testimonial-dot:hover {
-  background: var(--gold);
+  background: var(--raw-red);
 }
 
 /* ============================================================
@@ -950,7 +948,7 @@ button {
 .schedule-table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  border: 1px solid rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(204, 0, 0, 0.15);
   border-radius: 8px;
 }
 
@@ -965,11 +963,11 @@ button {
   font-size: 1.1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(255, 215, 0, 0.08);
+  color: var(--raw-red);
+  background: rgba(204, 0, 0, 0.08);
   padding: var(--space-sm) var(--space-md);
   text-align: left;
-  border-bottom: 2px solid rgba(255, 215, 0, 0.15);
+  border-bottom: 2px solid rgba(204, 0, 0, 0.15);
 }
 
 .schedule-table tbody td {
@@ -1021,7 +1019,7 @@ button {
 .class-dot.pankration  { background: #FF9800; }
 .class-dot.kickboxing  { background: #2196F3; }
 .class-dot.bjj         { background: #9C27B0; }
-.class-dot.sambo       { background: #FFD700; }
+.class-dot.sambo       { background: #00BCD4; }
 
 .schedule-legend {
   display: flex;
@@ -1096,7 +1094,7 @@ button {
 }
 
 .map-info-item i {
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 /* ============================================================
@@ -1218,7 +1216,7 @@ button {
 }
 
 .footer-nav a:hover {
-  color: var(--gold);
+  color: var(--raw-red);
 }
 
 .footer-social {
@@ -1229,7 +1227,7 @@ button {
 .footer-social a {
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(204, 0, 0, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1240,9 +1238,9 @@ button {
 }
 
 .footer-social a:hover {
-  background: var(--gold);
-  color: var(--deep-black);
-  border-color: var(--gold);
+  background: var(--raw-red);
+  color: var(--white);
+  border-color: var(--raw-red);
   transform: translateY(-3px);
 }
 
