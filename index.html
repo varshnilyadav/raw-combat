@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAW Combat Sports — Elite Combat Training Since 2014</title>
+  <meta name="description" content="RAW Combat Sports offers elite training in Grappling, MMA, Pankration, Kickboxing, BJJ, and Sambo. Join Hyderabad's premier combat sports gym — training champions since 2014.">
+  <meta name="keywords" content="MMA gym, combat sports, grappling, kickboxing, BJJ, Brazilian Jiu-Jitsu, Sambo, Pankration, martial arts, Hyderabad, Raw Combat Sports">
+  <meta property="og:title" content="RAW Combat Sports — Elite Combat Training Since 2014">
+  <meta property="og:description" content="Train Like a Fighter. Compete Like a Champion. 6 Combat Disciplines. Join Now.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="raw combat logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <a href="#hero" class="nav-logo">
+      <img src="raw combat logo.png" alt="RAW Combat Sports Logo">
+      <span class="nav-logo-text"><em>RAW</em> COMBAT</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#hero">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#why-us">About</a>
+      <a href="#map-section">Location</a>
+      <a href="https://wa.me/918639095610" target="_blank" rel="noopener" class="nav-cta">
+        <i class="fab fa-whatsapp"></i>&nbsp; Contact Us
+      </a>
+    </div>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#hero" class="mobile-nav-link">Home</a>
+    <a href="#programs" class="mobile-nav-link">Programs</a>
+    <a href="#schedule" class="mobile-nav-link">Schedule</a>
+    <a href="#why-us" class="mobile-nav-link">About</a>
+    <a href="#map-section" class="mobile-nav-link">Location</a>
+    <a href="#join" class="mobile-nav-link">Join Now</a>
+    <a href="https://wa.me/918639095610" target="_blank" rel="noopener" class="mobile-nav-link" style="color: #25D366;">
+      <i class="fab fa-whatsapp"></i>&nbsp; WhatsApp
+    </a>
+  </div>
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+    <div class="hero-content" id="heroContent">
+      <img src="raw combat logo.png" alt="RAW Combat Sports Badge" class="hero-logo" id="heroLogo">
+
+      <h1 class="hero-headline">
+        <span class="red">FORGED</span> IN COMBAT<span class="red">.</span>
+      </h1>
+
+      <p class="hero-sub">Train Like a Fighter. Compete Like a Champion. Since 2014.</p>
+
+      <div class="hero-ctas">
+        <div class="magnetic-wrap">
+          <a href="#join" class="magnetic-btn primary" id="cta-join">JOIN NOW</a>
+        </div>
+        <div class="magnetic-wrap">
+          <a href="#schedule" class="magnetic-btn outline" id="cta-schedule">VIEW SCHEDULE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — MARQUEE STRIPS
+       ============================================================ -->
+  <section class="marquee-section" id="marquee">
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>GRAPPLING •</span>
+        <span>MMA •</span>
+        <span>PANKRATION •</span>
+        <span>KICKBOXING •</span>
+        <span>BJJ •</span>
+        <span>SAMBO •</span>
+        <span>GRAPPLING •</span>
+        <span>MMA •</span>
+        <span>PANKRATION •</span>
+        <span>KICKBOXING •</span>
+        <span>BJJ •</span>
+        <span>SAMBO •</span>
+      </div>
+    </div>
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>TRAIN HARD •</span>
+        <span>FIGHT SMART •</span>
+        <span>NO LIMITS •</span>
+        <span>SINCE 2014 •</span>
+        <span>TRAIN HARD •</span>
+        <span>FIGHT SMART •</span>
+        <span>NO LIMITS •</span>
+        <span>SINCE 2014 •</span>
+        <span>TRAIN HARD •</span>
+        <span>FIGHT SMART •</span>
+        <span>NO LIMITS •</span>
+        <span>SINCE 2014 •</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — PROGRAMS / DISCIPLINES
+       ============================================================ -->
+  <section class="programs section-padding" id="programs">
+    <div class="container">
+      <p class="accent-label reveal" style="text-align:center; margin-bottom: 0.5rem;">What We Teach</p>
+      <h2 class="section-title reveal">OUR <span>DISCIPLINES</span></h2>
+
+      <div class="programs-grid">
+
+        <!-- Card 1: Grappling -->
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4C18 4 8 14 8 28c0 10 6 18 14 22l2-4c-6-3-10-10-10-18 0-12 8-20 18-20s18 8 18 20c0 8-4 15-10 18l2 4c8-4 14-12 14-22C56 14 46 4 32 4z"/>
+              <circle cx="24" cy="30" r="4"/>
+              <circle cx="40" cy="30" r="4"/>
+              <path d="M24 42c0 0 4 6 8 6s8-6 8-6" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>GRAPPLING</h3>
+          <p>Master ground control and submission techniques</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 2: MMA -->
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 8l-6 14h8l-4 16 18-20h-10l8-10z"/>
+              <circle cx="44" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M38 26l-4 30M44 22l8 20" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3>MMA</h3>
+          <p>Complete fighter development — striking + grappling combined</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Pankration -->
+        <div class="program-card reveal reveal-delay-3">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 6l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12z"/>
+              <path d="M20 44l12 14 12-14" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>PANKRATION</h3>
+          <p>Ancient combat sport revived with modern technique</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 4: Kickboxing -->
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="36" cy="10" r="5"/>
+              <path d="M30 18l-8 16h6l-2 12 14-16h-8l6-12z"/>
+              <path d="M38 46l10-8M26 46l-6-4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <h3>KICKBOXING</h3>
+          <p>Explosive striking power and footwork precision</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 5: BJJ -->
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 32a16 16 0 1 1 32 0 16 16 0 1 1-32 0z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M28 24c0 0 4 4 8 0M24 36c0 0 8 8 16 0" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="32" cy="32" r="4"/>
+            </svg>
+          </div>
+          <h3>BJJ</h3>
+          <p>The gentle art of leverage and ground mastery</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 6: Sambo -->
+        <div class="program-card reveal reveal-delay-3">
+          <div class="program-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4l8 16 16 4-12 12 2 16-14-8-14 8 2-16L8 24l16-4z"/>
+            </svg>
+          </div>
+          <h3>SAMBO</h3>
+          <p>Russian combat system blending wrestling and judo</p>
+          <div class="magnetic-wrap">
+            <a href="#join" class="magnetic-btn outline">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — STATS BAR
+       ============================================================ -->
+  <section class="stats section-padding" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div>
+            <span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Years of Training Excellence</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div>
+            <span class="stat-number" data-target="6">0</span>
+          </div>
+          <p class="stat-label">Combat Disciplines</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div>
+            <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Active Members</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div>
+            <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Competition Medals Won</p>
+        </div>
+        <div class="stat-item reveal reveal-delay-4">
+          <div>
+            <span class="stat-number" data-target="12">0</span><span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Expert Coaches</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — WHY TRAIN WITH US
+       ============================================================ -->
+  <section class="why-us section-padding" id="why-us">
+    <div class="container">
+      <p class="accent-label reveal" style="text-align:center; margin-bottom: 0.5rem;">The RAW Difference</p>
+      <h2 class="section-title reveal">WHY <span>TRAIN WITH US</span></h2>
+
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+          </div>
+          <h3>ELITE COACHING</h3>
+          <p>Learn from fighters with real competition experience. Our coaches are champions who know how to build champions.</p>
+        </div>
+
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+          </div>
+          <h3>ALL LEVELS WELCOME</h3>
+          <p>From complete beginner to competitive athlete. Our structured programs grow with you at every stage of your journey.</p>
+        </div>
+
+        <div class="why-item reveal reveal-delay-3">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
+            </svg>
+          </div>
+          <h3>PROVEN RESULTS</h3>
+          <p>Our fighters compete and win at regional and national level. Join a legacy of champions who started right here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <p class="accent-label reveal" style="text-align:center; margin-bottom: 0.5rem;">What Our Fighters Say</p>
+      <h2 class="section-title reveal">TESTIMONIALS</h2>
+
+      <div class="testimonial-viewport" id="testimonialViewport">
+        <div class="testimonial-track" id="testimonialTrack">
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote-mark">&ldquo;</div>
+              <p class="testimonial-text">RAW transformed me from a complete beginner into a state-level competitor in under 2 years. The coaching methodology is world-class.</p>
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <p class="testimonial-name">ARJUN S.</p>
+              <p class="testimonial-role">BJJ Student</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote-mark">&ldquo;</div>
+              <p class="testimonial-text">The coaches here are elite. Real fighters who know how to teach. Every session pushes me beyond what I thought possible.</p>
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <p class="testimonial-name">PRIYA M.</p>
+              <p class="testimonial-role">MMA Fighter</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote-mark">&ldquo;</div>
+              <p class="testimonial-text">Best gym in the city. The Sambo classes are unlike anything else available. Raw intensity, raw results.</p>
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <p class="testimonial-name">RAHUL K.</p>
+              <p class="testimonial-role">Sambo Athlete</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote-mark">&ldquo;</div>
+              <p class="testimonial-text">I joined for fitness but fell in love with Pankration. The ancient combat art combined with modern training — there's nothing like it in Hyderabad.</p>
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <p class="testimonial-name">VIKRAM D.</p>
+              <p class="testimonial-role">Pankration Enthusiast</p>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote-mark">&ldquo;</div>
+              <p class="testimonial-text">As a woman, I was nervous to start. RAW made me feel powerful from day one. The kickboxing program is incredible — I've never felt stronger.</p>
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <p class="testimonial-name">SNEHA R.</p>
+              <p class="testimonial-role">Kickboxing Student</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="testimonial-dots" id="testimonialDots">
+        <button class="testimonial-dot active" data-index="0" aria-label="Testimonial 1"></button>
+        <button class="testimonial-dot" data-index="1" aria-label="Testimonial 2"></button>
+        <button class="testimonial-dot" data-index="2" aria-label="Testimonial 3"></button>
+        <button class="testimonial-dot" data-index="3" aria-label="Testimonial 4"></button>
+        <button class="testimonial-dot" data-index="4" aria-label="Testimonial 5"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — SCHEDULE / TIMETABLE
+       ============================================================ -->
+  <section class="schedule section-padding" id="schedule">
+    <div class="container">
+      <p class="accent-label reveal" style="text-align:center; margin-bottom: 0.5rem;">Weekly Timetable</p>
+      <h2 class="section-title reveal">CLASS <span>SCHEDULE</span></h2>
+
+      <div class="schedule-table-wrap reveal">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Morning (7–9 AM)</th>
+              <th>Evening (5–8 PM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot grappling"></span> Grappling</span>
+                <span class="class-tag"><span class="class-dot bjj"></span> BJJ Fundamentals</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot mma"></span> MMA</span>
+                <span class="class-tag"><span class="class-dot kickboxing"></span> Kickboxing</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot kickboxing"></span> Kickboxing</span>
+                <span class="class-tag"><span class="class-dot sambo"></span> Sambo</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot bjj"></span> BJJ Advanced</span>
+                <span class="class-tag"><span class="class-dot pankration"></span> Pankration</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot mma"></span> MMA Conditioning</span>
+                <span class="class-tag"><span class="class-dot grappling"></span> Grappling</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot sambo"></span> Sambo</span>
+                <span class="class-tag"><span class="class-dot kickboxing"></span> Kickboxing</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot bjj"></span> BJJ Drills</span>
+                <span class="class-tag"><span class="class-dot pankration"></span> Pankration</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot mma"></span> MMA Sparring</span>
+                <span class="class-tag"><span class="class-dot grappling"></span> Grappling</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot sambo"></span> Sambo</span>
+                <span class="class-tag"><span class="class-dot kickboxing"></span> Kickboxing Power</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot bjj"></span> BJJ Open Mat</span>
+                <span class="class-tag"><span class="class-dot mma"></span> MMA</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>
+                <span class="class-tag"><span class="class-dot grappling"></span> Grappling Open</span>
+                <span class="class-tag"><span class="class-dot pankration"></span> Pankration</span>
+              </td>
+              <td>
+                <span class="class-tag"><span class="class-dot mma"></span> MMA Competition Prep</span>
+                <span class="class-tag"><span class="class-dot sambo"></span> Sambo Advanced</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="schedule-legend reveal">
+        <div class="legend-item"><span class="class-dot grappling"></span> Grappling</div>
+        <div class="legend-item"><span class="class-dot mma"></span> MMA</div>
+        <div class="legend-item"><span class="class-dot pankration"></span> Pankration</div>
+        <div class="legend-item"><span class="class-dot kickboxing"></span> Kickboxing</div>
+        <div class="legend-item"><span class="class-dot bjj"></span> BJJ</div>
+        <div class="legend-item"><span class="class-dot sambo"></span> Sambo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — MAP
+       ============================================================ -->
+  <section class="map-section" id="map-section">
+    <div class="container">
+      <p class="accent-label reveal" style="text-align:center; margin-bottom: 0.5rem;">Find Us</p>
+      <h2 class="section-title reveal">OUR <span>LOCATION</span></h2>
+    </div>
+    <div class="map-container reveal">
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9!2d78.4939487!3d17.3913506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99cb4858c733%3A0x41df1d836cfea09f!2sRaw%20combat%20Sports!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="RAW Combat Sports Location">
+      </iframe>
+      <div class="map-info">
+        <div class="map-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Hyderabad, Telangana</span>
+        </div>
+        <div class="map-info-item">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/918639095610" target="_blank" rel="noopener" style="color: var(--gold);">+91 8639095610</a>
+        </div>
+        <div class="map-info-item">
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/raw_combat_sports/" target="_blank" rel="noopener" style="color: var(--gold);">@raw_combat_sports</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 9 — JOIN / CTA
+       ============================================================ -->
+  <section class="join-cta section-padding" id="join">
+    <div class="container">
+      <div class="join-content reveal">
+        <h2 class="join-headline">READY TO START YOUR JOURNEY?</h2>
+        <p class="join-sub">First class is FREE. No experience needed.</p>
+        <div class="magnetic-wrap">
+          <a href="https://wa.me/918639095610?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20class%20at%20RAW%20Combat%20Sports!" target="_blank" rel="noopener" class="magnetic-btn gold-large" id="cta-book">BOOK YOUR FREE CLASS</a>
+        </div>
+        <p class="join-disciplines">Grappling • MMA • Pankration • Kickboxing • BJJ • Sambo</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="raw combat logo.png" alt="RAW Combat Sports">
+          <div class="footer-brand-text">
+            <em>RAW</em> COMBAT SPORTS
+            <small>Forged in Combat Since 2014</small>
+          </div>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="#hero">Home</a>
+          <a href="#programs">Programs</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#why-us">About</a>
+          <a href="#map-section">Location</a>
+        </nav>
+
+        <div class="footer-social">
+          <a href="https://www.instagram.com/raw_combat_sports/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/918639095610" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 RAW Combat Sports. Since 2014. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP BUTTON
+       ============================================================ -->
+  <a href="https://wa.me/918639095610" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script src="script.js"></script>
+
+</body>
+</html>
